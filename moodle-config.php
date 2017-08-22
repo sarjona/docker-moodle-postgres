@@ -64,6 +64,7 @@ $CFG->dboptions = array(
 // http://docs.moodle.org/en/masquerading
 
 $CFG->wwwroot   = getenv('MOODLE_URL');
+$CFG->sessioncookie=md5($CFG->wwwroot);
 
 
 //=========================================================================
