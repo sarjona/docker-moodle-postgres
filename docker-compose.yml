@@ -1,0 +1,21 @@
+moodle:
+  image: moodle-postgres
+  build: .
+  container_name: moodle-postgres
+  ports:
+    - "8000:80"
+  links:
+    - postgres-moodle-db:db
+  volumes:
+    - ./moodle:/var/www/html
+  environment:
+    - MOODLE_URL=http://120.0.0.1:8000
+
+moodledb:
+  image: postgres
+  container_name: postgres-moodle-db
+  ports:
+    - "32768:5432"
+  environment:
+    - POSTGRES_USER=moodle
+    - POSTGRES_PASSWORD=secret
